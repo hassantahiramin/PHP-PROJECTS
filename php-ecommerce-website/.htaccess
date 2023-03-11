@@ -1,0 +1,39 @@
+
+
+RewriteEngine on
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+
+
+# Installation directory
+RewriteBase /
+# Allow any files or directories that exist to be displayed directly
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\.]+)$ $1.php [L,QSA,NC]
+</IfModule>
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{THE_REQUEST} \s/categories\.php\?parent_name=([_0-9a-zA-Z-]+)\s [NC]
+RewriteRule ^ %1.html? [NC]
+RewriteRule ^([_0-9a-zA-Z-]+?)(?:\.html)?$ /categories.php?parent_name=$1 [NC]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{THE_REQUEST} \s/products\.php\?parent_name=([_0-9a-zA-Z-]+)&category_name=([_0-9a-zA-Z-]+)&page=(.*)\s [NC]
+RewriteRule ^ %1/%2.html?%3 [NC]
+RewriteRule ^([_0-9a-zA-Z-]+)(?:/([_0-9a-zA-Z-]+))(?:\.html)(.*)?$ /products.php?parent_name=$1&category_name=$2&page=$3 [NC]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{THE_REQUEST} \s/product_details\.php\?parent_name=([_0-9a-zA-Z-]+)&category_name=([_0-9a-zA-Z-]+)&product_name=([_0-9a-zA-Z-]+)\s [NC]
+RewriteRule ^ %1/%2/%3.html? [NC]
+RewriteRule ^([_0-9a-zA-Z-]+)(?:/([_0-9a-zA-Z-]+))(?:/([_0-9a-zA-Z-]+))(?:\.html)?$ /product_details.php?parent_name=$1&category_name=$2&product_name=$3 [NC]
