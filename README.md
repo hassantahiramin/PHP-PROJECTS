@@ -3,10 +3,23 @@
 
 Built with PHP! I have created these projects to showcase the capabilities of ecommerce platforms and highlight the features that I can offer to my clients.
 
-## Features
+## Projects Demo Links
 
-- PHP PDO
-- PHP MySQLi
+- Ecommerce Website
+
+- https://demo-ecommerce-web.000webhostapp.com/
+
+- Invoice Management PHP-PDO
+
+- https://php-pdo-invoice-form.000webhostapp.com/
+
+- Invoice Management PHP-MySQLi
+
+- https://php-mysqli-invoice-form.000webhostapp.com/
+## Languages
+
+- PHP (PDO)
+- PHP (MySQLi)
 - JavaScript
 - Ajax
 - HTML
