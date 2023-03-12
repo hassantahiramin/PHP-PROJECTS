@@ -65,7 +65,7 @@ class Products {
                 </a>
               </div>
               <div class='product-info'>
-                <a href='/$parent_url' class='button-add-to-cart'>$cat_name</a>
+                <a href='/$parent_url' class='button-category'>$cat_name</a>
               </div>
             </li>";
           }
@@ -316,7 +316,7 @@ class Products {
                 </a>
               </div>
               <div class='product-info'>
-                <a href='/$parent_url' class='button-add-to-cart'>$cat_name</a>
+                <a href='/$parent_url' class='button-category'>$cat_name</a>
               </div>
             </li>";
           }
